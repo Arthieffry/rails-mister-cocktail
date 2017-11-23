@@ -7,7 +7,11 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'json'
 require 'open-uri'
-
+n = 1
+5.times do
+  Cocktail.create!(name: "frites #{n}")
+  n += 1
+end
 
 filepath = "http://www.thecocktaildb.com/api/json/v1/1/list.php?i=list"
 document = open(filepath).read
