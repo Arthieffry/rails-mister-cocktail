@@ -1,5 +1,6 @@
 <div class="container text-center">
   <h1>Ajouter votre cocktail</h1>
+  <%= link_to 'Back', cocktails_path, class: "btn btn-danger" %>
     <div class="col-xs-12 col-md-offset-4 col-md-4 col-offset-4">
     <%= simple_form_for @cocktail do |f| %>
       <%= f.input :name, label: 'Cocktails'%>

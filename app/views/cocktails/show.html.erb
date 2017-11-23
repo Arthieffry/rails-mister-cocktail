@@ -1,16 +1,18 @@
-  <div class="container">
-    <h1> <%= @cocktail.name %> </h1>
-    <%= link_to 'Add a dose', new_cocktail_dose_path(@cocktail), class: "btn btn-primary" %>
-    <div class="row">
-      <% @cocktail.doses.each do |dose| %>
-        <div class="card"">
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">
-              <h6> <%= dose.ingredient.name %> : <%= dose.description %> </h6>
-            </li>
-          </ul>
-        </div>
-      <% end %>
-    </div>
+<div class="container">
+  <h1> <%= @cocktail.name %> </h1>
+  <%= link_to 'Back', cocktails_path, class: "btn btn-danger" %>
+  <%= link_to 'Add a dose', new_cocktail_dose_path(@cocktail), class: "btn btn-primary" %>
+  <div class="row">
+    <% @cocktail.doses.each do |dose| %>
+      <div class="card"">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <h6> <%= dose.ingredient.name %> : <%= dose.description %> </h6>
+            <%= link_to 'Delete dose', dose_path(dose.id), method: :delete,  class: "btn btn-danger" %>
+          </li>
+        </ul>
+      </div>
+    <% end %>
   </div>
 </div>
+
