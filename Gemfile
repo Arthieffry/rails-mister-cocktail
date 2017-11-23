@@ -10,6 +10,7 @@ source 'https://rails-assets.org' do
 end
 
 ruby '2.3.5'
+gem 'faker'
 gem 'bootstrap-sass'
 gem 'font-awesome-sass'
 gem 'simple_form'

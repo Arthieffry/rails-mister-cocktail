@@ -1,0 +1,16 @@
+<div class="navbar-wagon">
+  <!-- Logo -->
+<!--   <a href="/" class="navbar-wagon-brand">
+    <img src="images/logo.png" alt="logo">
+  </a> -->
+  <%= link_to cocktails_path, class: "navbar-wagon-brand" do %>
+    <%= image_tag "cocktails.png", { id: "logo"}%>
+  <% end %>
+
+  <!-- Right Navigation -->
+  <h1 class="navbar-wagon-right hidden-xs hidden-sm">Avec l'Alcool, la Fête est plus folle</h1>
+  <div class="navbar-wagon-right hidden-xs hidden-sm">
+
+    <%= link_to "Ajoutez un cocktail", new_cocktail_path, class: "navbar-wagon-item navbar-wagon-link" %>
+  </div>
+</div>

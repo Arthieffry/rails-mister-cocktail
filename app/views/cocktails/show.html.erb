@@ -1,14 +1,33 @@
 <div class="container">
-  <h1> <%= @cocktail.name %> </h1>
-  <%= link_to 'Back', cocktails_path, class: "btn btn-danger" %>
-  <%= link_to 'Add a dose', new_cocktail_dose_path(@cocktail), class: "btn btn-primary" %>
+  <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://kitt.lewagon.com/placeholder/cities/shanghai');">
+    <div class="card-category">
+      <div class="text-justify"><%= link_to 'Back', cocktails_path, class: "btn btn-danger" %>
+      </div>
+    </div>
+    <div class="card-description">
+      <h2 class = "text-center"><%= @cocktail.name %></h2>
+      <p><%= link_to 'Add a dose', new_cocktail_dose_path(@cocktail), class: "btn btn-primary" %></p>
+    </div>
+    <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+  </div>
   <div class="row">
     <% @cocktail.doses.each do |dose| %>
       <div class="card"">
         <ul class="list-group list-group-flush">
           <li class="list-group-item">
-            <h6> <%= dose.ingredient.name %> : <%= dose.description %> </h6>
-            <%= link_to 'Delete dose', dose_path(dose.id), method: :delete,  class: "btn btn-danger" %>
+            <div class="message">
+              <div class="message-name">
+                <h3><%= dose.ingredient.name %></h3>
+              </div>
+              <div class="message-body">
+                <p>
+                  <%= dose.description %>
+                </p>
+              </div>
+              <div class="message-status">
+                <%= link_to 'Delete dose', dose_path(dose.id), method: :delete,  class: "btn btn-danger" %>
+              </div>
+            </div>
           </li>
         </ul>
       </div>
