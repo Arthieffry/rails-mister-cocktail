@@ -34,23 +34,27 @@
       <% end %>
     </div>
     <div class="col-xs-12 col-md-6">
-      <div class="message">
-        <img class="avatar-large" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan">
-        <div class="message-name">
-          <h3>Gab Dehan</h3>
-          <p>10/07/17</p>
+      <h2>Reviews :</h2>
+      <%= link_to 'Ajouter une review', new_cocktail_review_path(@cocktail), class: "btn btn-primary" %>
+      <% @cocktail.reviews.each do |review| %>
+        <div class="message">
+          <%= cl_image_tag("flix_bc9kqa.jpg", class: "avatar-large") %>
+          <div class="message-name">
+            <h3>Flix</h3>
+            <p><%= Time.now.strftime("%d/%m/%Y") %></p>
+          </div>
+          <div class="message-body">
+            <p><strong><%= review.content %></strong></p>
+          </div>
+          <div class="message-status">
+            <p class="price">
+              <% review.rating.times do %>
+                <i class="fa fa-star" aria-hidden="true"></i>
+              <% end %>
+            </p>
+          </div>
         </div>
-        <div class="message-body">
-          <p><strong>I am not sure yet!</strong></p>
-          <p>
-            I am not sure yet! I might be in Shanghai at this moment... Can I tell you later?
-          </p>
-        </div>
-        <div class="message-status">
-          <p class="status pending">Pending</p>
-          <p class="price">€345</p>
-        </div>
-      </div>
+      <% end %>
     </div>
   </div>
 </div>
