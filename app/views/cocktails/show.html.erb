@@ -1,9 +1,10 @@
 <% if @cocktail.photo.url  %>
-  <% photo = @cocktail.photo.url %>
+  <% url = cl_image_path @cocktail.photo.url %>
 <% else %>
-  <% photo = "cocktails_drinks-wallpaper-1920x1200_gjppew.jpg" %>
+  <% url = image_url("cocktails.png")  %>
 <% end %>
- <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path photo, height: 300, width: 400, crop: :fill %>');">
+
+ <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path url, height: 300, width: 400, crop: :fill %>');">
   <div class="banner-content">
     <h1><%= @cocktail.name %></h1>
     <p>Personnalisez votre cocktail</p>
