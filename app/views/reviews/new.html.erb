@@ -1,11 +1,13 @@
-<div class="container text-center">
-  <h1>Ajouter votre Review</h1>
-  <div class="col-xs-12 col-md-offset-4 col-md-4 col-offset-4">
-    <%= simple_form_for [@cocktail, @review] do |f| %>
-      <%= f.input :rating, collection: [0, 1, 2, 3, 4, 5] %>
-      <%= f.input :content %>
-      <em>Les champs avec " * " sont obligatoires</em><br>
-      <%= f.submit "Add a review", class: "btn btn-primary" %>
-    <% end %>
+<div class="banner f" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= image_path "cocktails.png", height: 300, width: 400, crop: :fill %>');">
+  <div class="container text-center f">
+    <h1>Ajouter votre Review</h1>
+    <div class="col-xs-12 col-md-offset-4 col-md-4 col-offset-4">
+      <%= simple_form_for [@cocktail, @review] do |f| %>
+        <%= f.input :rating, collection: [0, 1, 2, 3, 4, 5] %>
+        <%= f.input :content %>
+        <em>Les champs avec " * " sont obligatoires</em><br>
+        <%= f.submit "Ajoutez votre review", class: "btn btn-primary" %>
+      <% end %>
+    </div>
   </div>
 </div>

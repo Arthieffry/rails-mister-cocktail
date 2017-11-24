@@ -8,14 +8,14 @@
   <div class="banner-content">
     <h1><%= @cocktail.name %></h1>
     <p>Personnalisez votre cocktail</p>
-    <%= link_to 'Add a dose', new_cocktail_dose_path(@cocktail), class: "btn btn-primary" %>
+    <%= link_to 'Ajoutez un ingrédient', new_cocktail_dose_path(@cocktail), class: "btn btn-primary" %>
   </div>
 </div>
 
 <div class="container">
   <div class="text-justify"><%= link_to 'Back', cocktails_path, class: "btn btn-danger" %></div>
   <div class="row">
-    <div class="col-xs-12 col-md-6">
+    <div class="col-xs-12 col-md-6 ">
       <h2>Composition: </h2>
       <% @cocktail.doses.each do |dose| %>
         <div class="col-xs-12 col-md-offset-1 col-md-10 col-md-offset-1">
@@ -28,7 +28,7 @@
                 <p><%= dose.description %></p>
               </div>
               <ul class="list-inline product-controls hidden-sm hidden-xs">
-                <li><%= link_to 'Delete dose', dose_path(dose.id), method: :delete,  class: "btn btn-danger" %></li>
+                <li><%= link_to 'Supprimer', dose_path(dose.id), method: :delete,  class: "btn btn-danger" %></li>
               </ul>
             </div>
         </div>
