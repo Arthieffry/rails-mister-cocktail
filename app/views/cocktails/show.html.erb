@@ -1,35 +1,60 @@
-<div class="container">
-  <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path @cocktail.photo.url, height: 300, width: 400, crop: :fill %>') ;">
-    <div class="card-category">
-      <div class="text-justify"><%= link_to 'Back', cocktails_path, class: "btn btn-danger" %>
-      </div>
-    </div>
-    <div class="card-description">
-      <h2 class = "text-center"><%= @cocktail.name %></h2>
-      <p><%= link_to 'Add a dose', new_cocktail_dose_path(@cocktail), class: "btn btn-primary" %></p>
-    </div>
-    <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
-  </div>
-  <div class="row">
-    <% @cocktail.doses.each do |dose| %>
-      <div class="card"">
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">
-            <div class="message">
-              <div class="message-name">
-                <h3><%= dose.ingredient.name %></h3>
-              </div>
-              <div class="message-body">
-              </div>
-              <div class="message-status">
-                <%= link_to 'Delete dose', dose_path(dose.id), method: :delete,  class: "btn btn-danger" %>
-              </div>
-            </div>
-          </li>
-          <li class="message-body"><p><%= dose.description %></p></li>
-        </ul>
-      </div>
-    <% end %>
+<% if @cocktail.photo.url  %>
+  <% photo = @cocktail.photo.url %>
+<% else %>
+  <% photo = "cocktails_drinks-wallpaper-1920x1200_gjppew.jpg" %>
+<% end %>
+ <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path photo, height: 300, width: 400, crop: :fill %>');">
+  <div class="banner-content">
+    <h1><%= @cocktail.name %></h1>
+    <p>Personnalisez votre cocktail</p>
+    <%= link_to 'Add a dose', new_cocktail_dose_path(@cocktail), class: "btn btn-primary" %>
   </div>
 </div>
+
+<div class="container">
+  <div class="text-justify"><%= link_to 'Back', cocktails_path, class: "btn btn-danger" %></div>
+  <div class="row">
+    <div class="col-xs-12 col-md-6">
+      <h2>Composition: </h2>
+      <% @cocktail.doses.each do |dose| %>
+        <div class="col-xs-12 col-md-offset-1 col-md-10 col-md-offset-1">
+            <div class="product">
+              <div class='product-upvote'>
+                <div class='product-count'><i class="fa fa-glass"></i></div>
+              </div>
+              <div class='product-body'>
+                <h3><%= dose.ingredient.name %></h3>
+                <p><%= dose.description %></p>
+              </div>
+              <ul class="list-inline product-controls hidden-sm hidden-xs">
+                <li><%= link_to 'Delete dose', dose_path(dose.id), method: :delete,  class: "btn btn-danger" %></li>
+              </ul>
+            </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="col-xs-12 col-md-6">
+      <div class="message">
+        <img class="avatar-large" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan">
+        <div class="message-name">
+          <h3>Gab Dehan</h3>
+          <p>10/07/17</p>
+        </div>
+        <div class="message-body">
+          <p><strong>I am not sure yet!</strong></p>
+          <p>
+            I am not sure yet! I might be in Shanghai at this moment... Can I tell you later?
+          </p>
+        </div>
+        <div class="message-status">
+          <p class="status pending">Pending</p>
+          <p class="price">€345</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 

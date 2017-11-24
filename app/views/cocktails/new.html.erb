@@ -1,13 +1,14 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path "cocktails_drinks-wallpaper-1920x1200_gjppew.jpg", height: 300, width: 400, crop: :fill %>');">
 <div class="container text-center">
-  <div class="text-justify"><%= link_to 'Back', cocktails_path, class: "btn btn-danger" %></div>
-  <h2>Ajouter votre cocktail</h2>
-    <div class="col-xs-12 col-md-offset-4 col-md-4 col-offset-4">
-    <%= simple_form_for @cocktail do |f| %>
-      <%= f.input :name, label: 'Give it a F***ing Name :'%>
-      <%= f.input :photo, label: 'Insert your photo' %>
-      <%= f.input :photo_cache, as: :hidden %>
-      <%= f.submit "Add a Cocktail", class: "btn btn-primary" %>
-    <% end %>
+    <div class="text-justify"><%= link_to 'Back', cocktails_path, class: "btn btn-danger" %></div>
+    <h2>Ajouter votre cocktail</h2>
+      <div class="col-xs-12 col-md-offset-4 col-md-4 col-offset-4">
+      <%= simple_form_for @cocktail do |f| %>
+        <%= f.input :name, label: 'Give it a F***ing Name :'%>
+        <%= f.input :photo, label: 'Insert your photo :' %>
+        <%= f.input :photo_cache, as: :hidden %>
+        <%= f.submit "Add a Cocktail", class: "btn btn-primary" %>
+      <% end %>
+    </div>
   </div>
 </div>
-
